@@ -92,6 +92,10 @@ impl FheBool {
         self.ciphertext.current_device()
     }
 
+    pub fn into_raw_parts(self) -> crate::shortint::Ciphertext {
+        self.ciphertext.on_cpu().clone().0
+    }
+
     /// Moves (in-place) the ciphertext to the desired device.
     ///
     /// Does nothing if the ciphertext is already in the desired device
